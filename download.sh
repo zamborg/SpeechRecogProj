@@ -8,18 +8,18 @@ cd voxpopuli
 
 
 # download data:
-ROOT=../audio/
+ROOT='/data'
 GREEK='el'
 LATVIAN='lv'
 MALTESE='mt'
 
 python -m voxpopuli.download_audios --root $ROOT --subset $GREEK
-python -m voxpopuli.download_audios --root $ROOT --subset $LATVIAN
-python -m voxpopuli.download_audios --root $ROOT --subset $MALTESE
+# python -m voxpopuli.download_audios --root $ROOT --subset $LATVIAN
+# python -m voxpopuli.download_audios --root $ROOT --subset $MALTESE
 
 # now segment the data:
 python -m voxpopuli.get_unlabelled_data --root $ROOT --subset $GREEK
-python -m voxpopuli.get_unlabelled_data --root $ROOT --subset $LATVIAN
-python -m voxpopuli.get_unlabelled_data --root $ROOT --subset $MALTESE
+# python -m voxpopuli.get_unlabelled_data --root $ROOT --subset $LATVIAN
+# python -m voxpopuli.get_unlabelled_data --root $ROOT --subset $MALTESE
 
 cd .. # move back dir
