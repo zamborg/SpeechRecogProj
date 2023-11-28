@@ -21,3 +21,5 @@ python -m voxpopuli.download_audios --root $ROOT --subset $MALTESE
 python -m voxpopuli.get_unlabelled_data --root $ROOT --subset $GREEK
 python -m voxpopuli.get_unlabelled_data --root $ROOT --subset $LATVIAN
 python -m voxpopuli.get_unlabelled_data --root $ROOT --subset $MALTESE
+
+cd .. # move back dir
