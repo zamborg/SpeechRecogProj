@@ -3,3 +3,4 @@ torchaudio==0.11.0
 num2words
 edlib
 editdistance
+numpy
