@@ -60,9 +60,9 @@ def decode(model, processor, arrays, tgt_lang='ell'):
         out = model.generate(input_features=inputs['input_features'], tgt_lang=tgt_lang)
         return processor.batch_decode(out, skip_special_tokens=True)
 
-def write_outputs(outputs, filepaths, out_dir, array_index, out_name):
+def write_outputs(outputs, filepaths, out_dir, out_name):
     combined = {o:f for o,f in zip(outputs,filepaths)}
-    with open(os.path.join(out_dir, array_index, out_name), "w") as f:
+    with open(os.path.join(out_dir, out_name), "w") as f:
         json.dump(combined, f)
 
 def transcribe(n=100, bs=5):
