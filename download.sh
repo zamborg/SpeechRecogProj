@@ -10,7 +10,7 @@ GREEK='el'
 LATVIAN='lv'
 MALTESE='mt'
 
-python -m voxpopuli.download_audios --root $ROOT --subset $GREEK
+# python -m voxpopuli.download_audios --root $ROOT --subset $GREEK
 # python -m voxpopuli.download_audios --root $ROOT --subset $LATVIAN
 # python -m voxpopuli.download_audios --root $ROOT --subset $MALTESE
 
