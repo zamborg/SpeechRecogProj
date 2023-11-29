@@ -31,9 +31,11 @@ class TimeBlock:
 
 
 def load_model(model_name="facebook/hf-seamless-m4t-large"):
-    model = SeamlessM4TForSpeechToText.from_pretrained(model_name)
+    # model = SeamlessM4TForSpeechToText.from_pretrained(model_name)
+    model = SeamlessM4TForSpeechToText.from_pretrained("../HFCACHE/hf-seamless-m4t-large/", config="../HFCACHE/hf-seamless-m4t-large/config.json")
     model = model.to(torch.device("cuda"))
-    processor = AutoProcessor.from_pretrained(model_name)
+    # processor = AutoProcessor.from_pretrained(model_name)
+    processor = AutoProcessor.from_pretrained("../HFCACHE/hf-seamless-m4t-large/")
     return model, processor
 
 def get_data(fps, n):
