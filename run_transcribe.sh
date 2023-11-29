@@ -5,8 +5,10 @@
 #SBATCH --partition=GPU-shared
 #SBATCH --gres=gpu:v100-32:1
 #SBATCH --time=24:00:00
-# #SBATCH --cpus-per-task=16
-
+#SBATCH --mem=64GB
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=1
+#SBATCH --cpus-per-task=34
 source ~/miniconda3/etc/profile.d/conda.sh
 conda activate project
 
