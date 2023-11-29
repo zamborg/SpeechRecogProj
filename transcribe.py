@@ -83,10 +83,11 @@ def main(args):
     with TimeBlock("Data Loading"):
         data = get_data(fp_subset, args.n)
     all_outputs, all_filepaths = [], []
-    for array, filepaths in tqdm(batch_generator(data, args.batch_size)):
-        outputs = decode(model, processor, array, args.lang)
-        all_outputs.extend(outputs)
-        all_filepaths.extend(filepaths)
+    with TimeBlock("ALL TRANSCRIPTIONS"):
+        for array, filepaths in tqdm(batch_generator(data, args.batch_size)):
+            outputs = decode(model, processor, array, args.lang)
+            all_outputs.extend(outputs)
+            all_filepaths.extend(filepaths)
     write_outputs(all_outputs, all_filepaths, OUTDIR, str(args.index)+"out.txt")
 
 if __name__ == "__main__":
