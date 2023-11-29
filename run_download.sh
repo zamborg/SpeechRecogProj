@@ -4,7 +4,7 @@
 #SBATCH --output=%x_%j.out
 #SBATCH --partition=RM-shared
 #SBATCH --time=24:00:00
-#SBATCH --cpus-per-task=32
+#SBATCH --cpus-per-task=16
 
 source ~/miniconda3/etc/profile.d/conda.sh
 conda activate project
