@@ -94,7 +94,7 @@ def main(args):
         data = get_data(fp_subset, args.n)
     all_outputs, all_filepaths = [], []
     with TimeBlock("ALL TRANSCRIPTIONS"):
-        for array, filepaths in tqdm(batch_generator(data, args.batch_size)):
+        for array, filepaths in tqdm(batch_generator(data, args.batch_size), total=len(data)//args.batch_size):
             outputs = decode(model, processor, array, args.lang)
             all_outputs.extend(outputs)
             all_filepaths.extend(filepaths)
