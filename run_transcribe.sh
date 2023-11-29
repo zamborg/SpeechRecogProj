@@ -10,6 +10,7 @@
 # #SBATCH --ntasks-per-node=4
 #SBATCH --cpus-per-task=5
 # source ~/project/miniconda3/etc/profile.d/conda.sh
+source /jet/home/zaysola/project/etc/profile.d/conda.sh
 conda activate project
 
 export HF_DATASETS_CACHE="../HFCACHE/"
