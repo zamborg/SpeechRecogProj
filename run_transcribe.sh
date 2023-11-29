@@ -7,8 +7,8 @@
 #SBATCH --time=24:00:00
 #SBATCH --mem=32GB
 #SBATCH --nodes=1
-#SBATCH --ntasks-per-node=1
-#SBATCH --cpus-per-task=34
+#SBATCH --ntasks-per-node=4
+#SBATCH --cpus-per-task=5
 source ~/miniconda3/etc/profile.d/conda.sh
 conda activate project
 
