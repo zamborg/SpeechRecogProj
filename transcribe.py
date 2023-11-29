@@ -50,11 +50,15 @@ def get_data(fps, n):
 def batch_generator(dataset, batch_size):
     for i in range(len(dataset)//batch_size):
         arrays, paths = [], []
-        for a in dataset[i*batch_size : (i+1)*batch_size]["audio"]:
-            arrays.append(a['array'])
-            paths.append(a['path'])
-        # list of paths list of arrays
-        yield arrays, paths
+        try:
+            for a in dataset[i*batch_size : (i+1)*batch_size]["audio"]:
+                arrays.append(a['array'])
+                paths.append(a['path'])
+            # list of paths list of arrays
+            yield arrays, paths
+        except:
+            print("Error in batch generator")
+            yield [], []
 
 def decode(model, processor, arrays, tgt_lang='ell'):
     with torch.no_grad():
