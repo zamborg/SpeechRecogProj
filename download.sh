@@ -4,9 +4,6 @@ mkdir audio
 git clone https://github.com/facebookresearch/voxpopuli.git
 cd voxpopuli
 
-
-
-
 # download data:
 ROOT='../../data'
 GREEK='el'

@@ -1,8 +1,9 @@
 #!/bin/bash
 
-#SBATCH --job-name=download
+#SBATCH --job-name=transcribe
 #SBATCH --output=%x.out
-#SBATCH --partition=RM-shared
+#SBATCH --partition=GPU-shared
+#SBATCH --gres=gpu:v100-32:1
 #SBATCH --time=24:00:00
 # #SBATCH --cpus-per-task=16
 
