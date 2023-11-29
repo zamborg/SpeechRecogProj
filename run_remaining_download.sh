@@ -12,5 +12,5 @@
 source ~/miniconda3/etc/profile.d/conda.sh
 conda activate project
 
-./download_lv.sh # i had to edit voxpopuli/voxpopuli/get_unlabelled_data.py:83 to include n_workers=12
+# ./download_lv.sh # i had to edit voxpopuli/voxpopuli/get_unlabelled_data.py:83 to include n_workers=12
 ./download_mt.sh
