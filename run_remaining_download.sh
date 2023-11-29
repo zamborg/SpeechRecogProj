@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #SBATCH --job-name=download
-#SBATCH --output=%x.out
+#SBATCH --output=%x_%S.out
 #SBATCH --partition=RM-shared
 #SBATCH --time=24:00:00
 #SBATCH --mem=16GB
