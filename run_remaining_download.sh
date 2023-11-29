@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#SBATCH --job-name=download
+#SBATCH --job-name=remaining_download
 #SBATCH --output=%x_%S.out
 #SBATCH --partition=RM-shared
 #SBATCH --time=24:00:00
