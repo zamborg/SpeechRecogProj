@@ -12,6 +12,7 @@ ARRAY_SIZE = 1 # BATCH ARRAY SIZE
 SAMPLING_RATE = 16000
 
 OUTDIR = "../data/transcribed/"
+DATADIR = "../data/unlabelled_data/el/*/*.ogg"
 # fp_subset = glob("..data/unlabelled_data/el/2009/*.ogg")
 fp_subset = glob("/data/unlabelled_data/el/2016/*.ogg")
 
@@ -77,10 +78,17 @@ def transcribe(n=100, bs=5):
             with TimeBlock("Batch"):
                 print(decode(model, processor, batch, 'ell'))
 
+def get_fp_subset(data_dir, index, max_index):
+    # index is from 1-N
+    fps = glob(data_dir)
+    step = len(fps)//max_index
+    return data_dir[(index-1)*step : index * step]
+
 def main(args):
     with TimeBlock("Model Loading"):
         model, processor = load_model()
     with TimeBlock("Data Loading"):
+        # fp_subset = get_fp_subset(DATADIR, args.index, args.max_index)
         data = get_data(fp_subset, args.n)
     all_outputs, all_filepaths = [], []
     with TimeBlock("ALL TRANSCRIPTIONS"):
@@ -93,6 +101,7 @@ def main(args):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--index", type=int, help="Index for batching 1-N")
+    parser.add_argument("--max_index", type=int, help="Number of array jobs launched")
     parser.add_argument("--n", type=int)
     parser.add_argument("--batch_size", type=int)
     parser.add_argument("--lang", type=str)
