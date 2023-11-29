@@ -10,4 +10,4 @@
 source ~/miniconda3/etc/profile.d/conda.sh
 conda activate project
 
-./download.sh
+srun python transcribe.py --index 1 --max_index 1 --n 500 --batch_size 10 --lang ell
