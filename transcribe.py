@@ -14,7 +14,7 @@ SAMPLING_RATE = 16000
 OUTDIR = "../data/transcribed/"
 DATADIR = "../data/unlabelled_data/el/*/*.ogg"
 # fp_subset = glob("..data/unlabelled_data/el/2009/*.ogg")
-fp_subset = glob("/data/unlabelled_data/el/2016/*.ogg")
+fp_subset = glob("/data/unlabelled_data/el/*/*.ogg")
 
 class TimeBlock:
     def __init__(self, string=""):
@@ -98,7 +98,7 @@ def main(args):
             outputs = decode(model, processor, array, args.lang)
             all_outputs.extend(outputs)
             all_filepaths.extend(filepaths)
-    write_outputs(all_outputs, all_filepaths, OUTDIR, str(args.index)+"out.txt")
+    write_outputs(all_outputs, all_filepaths, OUTDIR, f"{args.lang}/"+str(args.index)+"out.txt")
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
