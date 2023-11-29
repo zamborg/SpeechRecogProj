@@ -58,7 +58,7 @@ def batch_generator(dataset, batch_size):
             yield arrays, paths
         except:
             print("Error in batch generator")
-            yield [], []
+            yield None, None
 
 def decode(model, processor, arrays, tgt_lang='ell'):
     with torch.no_grad():
@@ -72,17 +72,17 @@ def write_outputs(outputs, filepaths, out_dir, out_name):
     with open(os.path.join(out_dir, out_name), "w") as f:
         json.dump(combined, f)
 
-def transcribe(n=100, bs=5):
-    with TimeBlock("Model loading"):
-        model, processor = load_model() # default
+# def transcribe(n=100, bs=5):
+#     with TimeBlock("Model loading"):
+#         model, processor = load_model() # default
 
-    with TimeBlock(f"Data Getting for {n}"):
-        data = get_data(fp_subset, n)
+#     with TimeBlock(f"Data Getting for {n}"):
+#         data = get_data(fp_subset, n)
 
-    with TimeBlock(f"Forward with batchsize: {bs}"):
-        for batch in batch_generator(data, bs):
-            with TimeBlock("Batch"):
-                print(decode(model, processor, batch, 'ell'))
+#     with TimeBlock(f"Forward with batchsize: {bs}"):
+#         for batch in batch_generator(data, bs):
+#             with TimeBlock("Batch"):
+#                 print(decode(model, processor, batch, 'ell'))
 
 def get_fp_subset(data_dir, index, max_index):
     # index is from 1-N
@@ -99,6 +99,8 @@ def main(args):
     all_outputs, all_filepaths = [], []
     with TimeBlock("ALL TRANSCRIPTIONS"):
         for array, filepaths in tqdm(batch_generator(data, args.batch_size), total=len(data)//args.batch_size):
+            if array is None or filepaths is None:
+                continue
             outputs = decode(model, processor, array, args.lang)
             all_outputs.extend(outputs)
             all_filepaths.extend(filepaths)
