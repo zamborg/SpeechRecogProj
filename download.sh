@@ -8,7 +8,7 @@ cd voxpopuli
 
 
 # download data:
-ROOT='/data'
+ROOT='../data'
 GREEK='el'
 LATVIAN='lv'
 MALTESE='mt'
