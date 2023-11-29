@@ -13,8 +13,8 @@ SAMPLING_RATE = 16000
 
 OUTDIR = "../data/transcribed/"
 DATADIR = "../data/unlabelled_data/el/*/*.ogg"
-# fp_subset = glob("..data/unlabelled_data/el/2009/*.ogg")
-fp_subset = glob("/data/unlabelled_data/el/*/*.ogg")
+fp_subset = glob("../data/unlabelled_data/el/*/*.ogg")
+# fp_subset = glob("/data/unlabelled_data/el/*/*.ogg")
 
 class TimeBlock:
     def __init__(self, string=""):
