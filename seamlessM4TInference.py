@@ -6,8 +6,12 @@ from glob import glob
 # expects seamless_communication dir to exist
 from seamless_communication.models.inference import Translator
 
+DEVICE = torch.cuda()
+
+
+
 def main(args):
-    pass
+    
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()

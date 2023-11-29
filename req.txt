@@ -4,3 +4,7 @@ num2words
 edlib
 editdistance
 numpy
+transformers
+datasets
+sentencepiece
+protobuf
