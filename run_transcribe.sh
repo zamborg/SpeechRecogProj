@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#SBATCH --job-name=transcribe
+#SBATCH --job-name=transcribe_maltese
 #SBATCH --output=%x.out
 #SBATCH --partition=GPU-shared
 #SBATCH --gres=gpu:v100-32:1
