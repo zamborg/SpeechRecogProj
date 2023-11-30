@@ -15,4 +15,5 @@ conda activate project
 
 export HF_DATASETS_CACHE="../HFCACHE/"
 
-srun python transcribe.py --index 1 --max_index 1 --n -1 --batch_size 20 --lang ell
+# srun python transcribe.py --index 1 --max_index 1 --n -1 --batch_size 20 --lang ell
+srun python transcribe.py --index 1 --max_index 1 --n -1 --batch_size 20 --lang mlt
